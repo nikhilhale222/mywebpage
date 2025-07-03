@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SLOW and SOLO</title>
+
+    <!-- Recommended meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- PyScript CSS -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.2.1/core.css">
+    <link rel="stylesheet" href="./Assets/style.css">
+
+    <!-- This script tag bootstraps PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2025.2.1/core.js"></script>
+</head>
+<body>
+
+    <style>
+        h1 {
+          text-align: center; color: white
+        }
+        
+        .main_image {
+            background-image: url("./Assets/back.jpg");
+            height: 200px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            background-color: white; /* White background */
+            color: white;
+            padding: 100px;
+        }
+        .main_text{ 
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+        
+        h2 {
+           text-align: center; color: red
+        }
+        
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .menu {
+            display: flex; /* Enable Flexbox */
+            justify-content: space-around; /* Distribute items evenly */ /* Other styling if needed (background color, padding, etc.) */
+            background-color: #f0f0f0; /* Example background */
+            padding: 10px; /* Example padding */
+            float: left;
+            width: 100%;
+            text-align: center;
+        }
+
+        .menu a {
+    display: block; /* Makes each link a block element */
+    padding: 15px 20px; /* Adjust padding as needed */
+    color: black;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border: 1px solid #ccc; /* Add borders to create blocks */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    text-align: center; /* Center text within the block */
+    width: 150px; /* Optional: Set a fixed width for the blocks */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin: 5px; /* Optional: Add some margin around the blocks */
+}
+        </style>
+    
+
+    <div class="main_image">
+        <div class="main_text">
+            <h1 style="font-size:50px, font-color: white"> <strong>SLOW and SOLO </strong> </h1>
+            <h3>Our Own travel blog</h3>
+<!--     <button>Hire me</button> -->
+        </div>
+    </div>
+
+    <div style="overflow:auto">
+        <div class="menu">
+            <li class="travel-item"><a href="./travels.html">My Travel</a></li>
+            <li><a href="#">State</a></li>
+            <li><a href="#">State</a></li>
+            <li><a href="#">Gallary</a></li>
+        </div>
+    </div>
+
+    <!-- ======= Title Page Setion ======= -->
+      <section id="blog_content">
+        <h2>Welcome to Our Blog!</h2>
+        <p>This is where we'll share our travel adventures, tips, and experiences. Stay tuned for updates!</p>
+        <p>We're passionate about slow travel and exploring destinations at our own pace. We believe in immersing ourselves in local cultures, savoring authentic cuisine, and connecting with the people we meet along the way.</p>
+        <p>Join us as we embark on solo journeys and discover the hidden gems of the world. We hope to inspire you to explore, dream, and embrace the joy of slow and solo travel.</p>
+
+        <div id="dynamic_message"></div>
+    <py-script>
+        from datetime import datetime
+        from js import document  # Import document from js
+
+        now = datetime.now()
+        current_time = now.strftime("%H:%M:%S")
+
+        message_div = document.getElementById("dynamic_message")
+        message_div.innerHTML = f"<p>Current time: {current_time}</p>"
+
+        def greet(*args, **kwargs):
+            from js import alert
+            alert("Hello from PyScript!")
+
+        # Attach the event handler (using JavaScript)
+        button = document.createElement("button")
+        button.textContent = "Click me!"
+        button.onclick = greet  # Assign the Python function to onclick
+        document.body.appendChild(button) # Add button to the body
+
+    </py-script>
+      </section>
+
+    <!-- ======= Title Page Setion ======= -->
+
+
+<!--         <button id="my_button">Click me!</button> -->
+
+
+<!--     <script type="py" src="./main.py" 
+        config="./pyscript.toml" terminal>
+        </script> -->
+
+</body>
+</html>
+
+
